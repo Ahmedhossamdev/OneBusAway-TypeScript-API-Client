@@ -1,10 +1,16 @@
-// Example usage
-import { OneBusAwayAPIClient } from './apis/agencyWithCoverage/v1';
+import { OneBusAwayAPIClient } from './api/OneBusAwayAPIClient';
 
 const apiKey = 'TEST';
-const outputFormat = 'xml';
+const outputFormat = 'json';
+
+// const client = new OneBusAwayAPIClient(apiKey, outputFormat);
+
+// client.agency.getAgencyDetails('1').then((agency) => {
+//   console.log(agency);
+// });
+
 const client = new OneBusAwayAPIClient(apiKey, outputFormat);
 
-client.getAgenciesWithCoverage().then((agencies) => {
-  console.log(agencies);
+client.agencyWithCoverage.getAgenciesWithCoverage().then((agencies) => {
+  console.log(agencies.data);
 });
