@@ -1,5 +1,4 @@
 import { ApiResponse, References } from '../../common/ApiRepsonse';
-import { AgencyEntry } from '../AgencyApi/AgencyInterfaces';
 
 export interface AgenciesWithCoverageResponse extends ApiResponse {
   data: {

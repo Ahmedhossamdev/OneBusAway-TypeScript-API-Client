@@ -12,13 +12,20 @@ export class AgencyApiWithCoverage {
     this.apiKey = apiKey;
     this.outputFormat = outputFormat;
   }
-
   async getAgenciesWithCoverage(): Promise<AgenciesWithCoverageResponse> {
     const url = `${this.apiUrl}.${this.outputFormat}?key=${this.apiKey}`;
 
     try {
-      const response = await axios.get<AgenciesWithCoverageResponse>(url);
-      const flattenedList: AgencyWithCoverage[] = response.data.data.list.flat();
+      const response = await axios.get(url);
+
+      let data;
+      if (this.outputFormat === 'xml') {
+        data = await parseXML<AgenciesWithCoverageResponse>(response.data);
+      } else {
+        data = response.data;
+      }
+
+      const flattenedList: AgencyWithCoverage[] = data.data.list.flat();
 
       const processedList: AgencyWithCoverage[] = flattenedList.map((item: any) => {
         return {
@@ -30,9 +37,9 @@ export class AgencyApiWithCoverage {
         };
       });
 
-      response.data.data.list = processedList;
+      data.data.list = processedList;
 
-      return response.data;
+      return data;
     } catch (error) {
       throw new Error(`Error fetching agencies with coverage: ${(error as Error).message}`);
     }
