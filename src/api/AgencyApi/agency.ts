@@ -1,3 +1,4 @@
+import { ApiResponse } from '../../common/ApiRepsonse';
 import axiosInstance from '../../utils/errorHandler';
 import { AgencyResponse } from './agency-interfaces';
 
@@ -11,14 +12,12 @@ export class AgencyApiClient {
   }
 
   async getAgencyDetails(agencyId: string): Promise<AgencyResponse> {
-    const url = `${this.apiUrl}/${agencyId}.json?key=${this.apiKey}`;
-
-    const response = await axiosInstance.get(url);
-
-    let agencyData: AgencyResponse;
-
-    agencyData = response.data;
-
-    return agencyData;
+    try {
+      const url = `${this.apiUrl}/${agencyId}.json?key=${this.apiKey}`;
+      const response = await axiosInstance.get(url);
+      return response.data as AgencyResponse;
+    } catch (error: any) {
+      return error;
+    }
   }
 }

@@ -12,28 +12,30 @@ export class AgencyApiWithCoverage {
   async getAgenciesWithCoverage(): Promise<AgenciesWithCoverageResponse> {
     const url = `${this.apiUrl}.json?key=${this.apiKey}`;
 
-    try {
-      const response = await axios.get(url);
+    let data = null;
 
-      const data = response.data;
+    const response = await axios.get(url);
 
-      const flattenedList: AgencyWithCoverage[] = data.data.list.flat();
-
-      const processedList: AgencyWithCoverage[] = flattenedList.map((item: any) => {
-        return {
-          agencyId: item.agencyId,
-          lat: item.lat,
-          latSpan: item.latSpan,
-          lon: item.lon,
-          lonSpan: item.lonSpan,
-        };
-      });
-
-      data.data.list = processedList;
-
-      return data;
-    } catch (error) {
-      throw new Error(`Error fetching agencies with coverage: ${(error as Error).message}`);
+    if (response.status === 404) {
+      data = response.data;
     }
+
+    data = response.data;
+
+    const flattenedList: AgencyWithCoverage[] = data.data.list.flat();
+
+    const processedList: AgencyWithCoverage[] = flattenedList.map((item: any) => {
+      return {
+        agencyId: item.agencyId,
+        lat: item.lat,
+        latSpan: item.latSpan,
+        lon: item.lon,
+        lonSpan: item.lonSpan,
+      };
+    });
+
+    data.data.list = processedList;
+
+    return data;
   }
 }
