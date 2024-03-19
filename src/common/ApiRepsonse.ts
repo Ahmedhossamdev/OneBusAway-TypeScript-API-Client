@@ -1,4 +1,4 @@
-import { AgencyEntry, AgencyResponse } from './../api/AgencyApi/AgencyInterfaces';
+import { AgencyEntry, AgencyResponse } from '../api/AgencyApi/agency-interfaces';
 
 export interface ApiResponse {
   text: string;

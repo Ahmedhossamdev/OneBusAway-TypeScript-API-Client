@@ -1,5 +1,5 @@
-import { AgencyApiClient } from './AgencyApi/AgencyApi';
-import { AgencyApiWithCoverage } from './AgencyWithCoverageApi/AgencyWithCoverageApi';
+import { AgencyApiClient } from './AgencyApi/agency';
+import { AgencyApiWithCoverage } from './AgencyWithCoverageApi/agency-with-coverage';
 
 export class OneBusAwayAPIClient {
   public agency: AgencyApiClient;

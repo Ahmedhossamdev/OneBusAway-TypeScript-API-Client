@@ -1,5 +1,5 @@
 import axiosInstance from '../../utils/errorHandler';
-import { AgencyResponse } from './AgencyInterfaces';
+import { AgencyResponse } from './agency-interfaces';
 
 export class AgencyApiClient {
   private apiKey: string;

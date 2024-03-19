@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AgenciesWithCoverageResponse, AgencyWithCoverage } from './AgencyWithCoverageInterfaces';
+import { AgenciesWithCoverageResponse, AgencyWithCoverage } from './agency-with-coverage-interfaces';
 
 export class AgencyApiWithCoverage {
   private readonly apiUrl: string;
