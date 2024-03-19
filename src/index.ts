@@ -1,10 +1,9 @@
 import { OneBusAwayAPIClient } from './api/OneBusAwayAPIClient';
 
 const apiKey = 'TEST';
-const outputFormat = 'xml';
 
-const client = new OneBusAwayAPIClient(apiKey, outputFormat);
+const client = new OneBusAwayAPIClient(apiKey);
 
-client.agency.getAgencyDetails('1').then((agency) => {
-  console.log(agency);
+client.agencyWithCoverage.getAgenciesWithCoverage().then((response) => {
+  console.log(response);
 });

@@ -4,9 +4,9 @@ import { AgencyApiWithCoverage } from './AgencyWithCoverageApi/AgencyWithCoverag
 export class OneBusAwayAPIClient {
   public agency: AgencyApiClient;
   public agencyWithCoverage: AgencyApiWithCoverage;
-  // By default, the output format is 'json'
-  constructor(apiKey: string, outputFormat: string = 'json') {
-    this.agency = new AgencyApiClient(apiKey, outputFormat);
-    this.agencyWithCoverage = new AgencyApiWithCoverage(apiKey, outputFormat);
+
+  constructor(apiKey: string) {
+    this.agency = new AgencyApiClient(apiKey);
+    this.agencyWithCoverage = new AgencyApiWithCoverage(apiKey);
   }
 }

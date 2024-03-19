@@ -1,29 +1,21 @@
 import axios from 'axios';
-import { parseXML } from './../../utils/xmlParser';
 import { AgenciesWithCoverageResponse, AgencyWithCoverage } from './AgencyWithCoverageInterfaces';
 
 export class AgencyApiWithCoverage {
   private readonly apiUrl: string;
   private readonly apiKey: string;
-  private readonly outputFormat: string;
 
-  constructor(apiKey: string, outputFormat: string) {
+  constructor(apiKey: string) {
     this.apiUrl = 'https://api.pugetsound.onebusaway.org/api/where/agencies-with-coverage';
     this.apiKey = apiKey;
-    this.outputFormat = outputFormat;
   }
   async getAgenciesWithCoverage(): Promise<AgenciesWithCoverageResponse> {
-    const url = `${this.apiUrl}.${this.outputFormat}?key=${this.apiKey}`;
+    const url = `${this.apiUrl}.json?key=${this.apiKey}`;
 
     try {
       const response = await axios.get(url);
 
-      let data;
-      if (this.outputFormat === 'xml') {
-        data = await parseXML<AgenciesWithCoverageResponse>(response.data);
-      } else {
-        data = response.data;
-      }
+      const data = response.data;
 
       const flattenedList: AgencyWithCoverage[] = data.data.list.flat();
 
