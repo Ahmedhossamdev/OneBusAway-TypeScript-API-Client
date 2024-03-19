@@ -1,9 +1,10 @@
-import { OneBusAwayAPIClient } from './api/oneBusAwayApiClient';
+import { OneBusAwayAPIClient } from './api/onebusawayclient';
 
 const apiKey = 'TEST';
+const region = 'pugetsound';
 
-const client = new OneBusAwayAPIClient(apiKey);
+const client = new OneBusAwayAPIClient(apiKey, region);
 
-client.agency.getAgencyDetails('1').then((response) => {
+client.agencyWithCoverage.getAgenciesWithCoverage().then((response) => {
   console.log(response);
 });

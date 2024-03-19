@@ -1,8 +1,4 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
-import createError from 'http-errors';
-import { ErrorResponse } from '../common/ErrorResponse';
-import logger from './../logger/logger'; // import a logger
-import { ApiResponse } from '../common/ApiRepsonse';
 
 function handleCommonErrors(error: AxiosError<any>) {
   if (error.response?.data) {
@@ -14,7 +10,6 @@ function handleCommonErrors(error: AxiosError<any>) {
 const axiosInstance: AxiosInstance = axios.create();
 
 // Add a response interceptor
-
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error: AxiosError<any>) => {
