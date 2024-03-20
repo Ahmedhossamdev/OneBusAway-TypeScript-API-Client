@@ -1,17 +1,18 @@
-import { AgencyEntry, AgencyResponse } from '../api/agency/agencyTypes';
+import { AgencyEntry } from '../apis/agency/agencyTypes';
+import { RouteEntry, StopEntry } from '../apis/stop/stopTypes';
 
 export interface ApiResponse {
-  text: string;
-  version: number;
-  code: number;
-  currentTime: number;
+  text?: string;
+  version?: number;
+  code?: number;
+  currentTime?: number;
 }
 
 export interface References {
   agencies: AgencyEntry[];
-  routes: any[];
+  routes: RouteEntry[];
   situations: any[];
   stopTimes: any[];
-  stops: any[];
+  stops: StopEntry[];
   trips: any[];
 }

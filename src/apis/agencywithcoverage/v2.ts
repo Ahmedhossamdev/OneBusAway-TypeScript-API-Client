@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { AgenciesWithCoverageResponse, AgencyWithCoverage } from './coverageTypes';
+import { ApiError } from '../../utils/errorHandler';
 
 export class AgencyWithCoverageApi {
   private readonly apiUrl: string;
@@ -10,14 +11,18 @@ export class AgencyWithCoverageApi {
     this.apiKey = apiKey;
   }
 
-  async getAgenciesWithCoverage(): Promise<AgenciesWithCoverageResponse> {
+  async getAgenciesWithCoverage(): Promise<AgenciesWithCoverageResponse | null> {
     const url = `${this.apiUrl}.json?key=${this.apiKey}`;
 
     const response = await axios.get(url);
+    if (response === null) {
+      return null;
+    }
+    if (response.data?.code >= 400) {
+      throw new ApiError(response.data.code, response.data.text, response.data.version, response.data.currentTime);
+    }
 
-    const data = response.data;
-
-    const flattenedList: AgencyWithCoverage[] = data.data.list.flat();
+    const flattenedList: AgencyWithCoverage[] = response.data.data.list.flat();
 
     const processedList: AgencyWithCoverage[] = flattenedList.map((item: any) => {
       return {
@@ -29,8 +34,8 @@ export class AgencyWithCoverageApi {
       };
     });
 
-    data.data.list = processedList;
+    response.data.data.list = processedList;
 
-    return data;
+    return response.data;
   }
 }
