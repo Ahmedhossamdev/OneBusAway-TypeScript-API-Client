@@ -1,13 +1,13 @@
-import { ApiResponse, References } from '../../common/api-repsonse';
+import { ApiResponse, References } from 'src/common/api-repsonse';
 
-export interface StopResponse extends ApiResponse {
+export interface IStopResponse extends ApiResponse {
   data: {
-    entry: StopEntry;
+    entry: IStopEntry;
     references: References;
   };
 }
 
-export interface StopEntry {
+export interface IStopEntry {
   code: string;
   direction: string;
   id: string;
@@ -21,7 +21,7 @@ export interface StopEntry {
   wheelchairBoarding: string;
 }
 
-export interface RouteEntry {
+export interface IRouteEntry {
   agencyId: string;
   color: string;
   description: string;

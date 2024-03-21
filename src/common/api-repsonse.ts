@@ -1,5 +1,6 @@
-import { AgencyEntry } from '../apis/agency/agencyTypes';
-import { RouteEntry, StopEntry } from '../apis/stop/stopTypes';
+import { IRouteEntry, IStopEntry } from 'src/apis/stop/types';
+import { IAgencyEntry } from '../apis/agency/types';
+import { ITripEntry } from 'src/apis/trip/types';
 
 export interface ApiResponse {
   text?: string;
@@ -9,10 +10,15 @@ export interface ApiResponse {
 }
 
 export interface References {
-  agencies: AgencyEntry[];
-  routes: RouteEntry[];
+  agencies: IAgencyEntry[];
+  routes: IRouteEntry[];
   situations: any[];
   stopTimes: any[];
-  stops: StopEntry[];
-  trips: any[];
+  stops: IStopEntry[];
+  trips: ITripEntry[];
+}
+
+export interface ILocation {
+  lat: number;
+  lon: number;
 }

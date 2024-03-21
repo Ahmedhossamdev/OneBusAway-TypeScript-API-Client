@@ -1,13 +1,13 @@
 import { ApiResponse, References } from '../../common/api-repsonse';
 
-export interface AgencyResponse extends ApiResponse {
+export interface IAgencyResponse extends ApiResponse {
   data: {
-    entry: AgencyEntry;
+    entry: IAgencyEntry;
     references: References;
   };
 }
 
-export interface AgencyEntry {
+export interface IAgencyEntry {
   disclaimer: string;
   email: string;
   fareUrl: string;

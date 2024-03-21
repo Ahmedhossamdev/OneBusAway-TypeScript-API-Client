@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2016",
     "module": "commonjs",
-    "rootDir": "./src",
-    "esModuleInterop": true,
+    "declaration": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": false,
     "outDir": "./dist",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true
-  }
+    "baseUrl": "./",
+    "incremental": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "test", "lib", "**/*spec.ts"]
 }

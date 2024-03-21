@@ -1,54 +1,34 @@
-import { ApiResponse } from '../../common/api-repsonse';
-import { ApiError, axiosInstance } from '../../utils/errorHandler';
-import { AgencyResponse } from './agencyTypes';
+import { ApiResponse } from 'src/common/api-repsonse';
+import { Base } from '../base';
+import { IAgencyResponse } from './types';
 
-/**
- * The `AgencyApi` class provides methods for interacting with the agency-related endpoints of the OneBusAway API.
- * It requires the base API URL and an API key to be provided upon instantiation.
+/***
+ * Agency API
  *
- * @example
- * const agencyApi = new AgencyApi(apiUrl, apiKey);
+ * The Agency API provides access to information about transit agencies. The data provided via the Agency API is intended for use in trip planning and related applications.
+ *
+ * @class
+ * @classdesc Agency API class to access the Agency API
+ * @extends Base
+ * @param {string} apiKey - API key to access the APIs
+ * @param {string} baseUrl - Base URL for the API
+ * @param {string} region - Region for the API
+ *
+ * @error
+ * This end point return json object if the agency is not found
+ *
+ * {
+ *  code: 404,
+ *  version: 2,
+ *  text: "The requested resource was not found."
+ *  currentTime: 1572020000
+ * }
+ *
  */
 
-export class AgencyApi {
-  private apiKey: string;
-  private apiUrl: string;
-
-  /**
-   * Constructs a new `AgencyApi` instance.
-   *
-   * @param apiUrl - The base URL of the OneBusAway API.
-   * @param apiKey - The API key to use for requests.
-   */
-  constructor(apiUrl: string, apiKey: string) {
-    this.apiUrl = apiUrl;
-    this.apiKey = apiKey;
-  }
-
-  /**
-   * Fetches details about a specific agency from the OneBusAway API.
-   *
-   * @param agencyId - The ID of the agency to fetch details for.
-   * @returns A Promise that resolves to an `AgencyResponse` object if the request is successful, or `null` if the response is null.
-   * @throws Will throw an `ApiError` if the API returns a status code of 400 or above.
-   *
-   * @example
-   * agencyApi.getAgencyDetails('1').then((response) => {
-   *   console.log(response);
-   * }).catch((error: ApiError) => {
-   *   console.error(error);
-   * });
-   */
-  async getAgencyDetails(agencyId: string): Promise<AgencyResponse | null> {
-    const url = `${this.apiUrl}/${agencyId}.json?key=${this.apiKey}`;
-    const response = await axiosInstance.get(url);
-
-    if (response === null) {
-      return null;
-    }
-    if (response.data?.code >= 400) {
-      throw new ApiError(response.data.code, response.data.text, response.data.version, response.data.currentTime);
-    }
-    return response.data;
+const resourceName = 'agency';
+export class Agency extends Base {
+  getAgencyById(id: string): Promise<IAgencyResponse> {
+    return this.request(`/${resourceName}/${id}`);
   }
 }

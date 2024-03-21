@@ -1,14 +1,14 @@
 import { ApiResponse, References } from '../../common/api-repsonse';
 
-export interface AgenciesWithCoverageResponse extends ApiResponse {
+export interface IAgenciesWithCoverageResponse extends ApiResponse {
   data: {
     limitExceeded: boolean;
-    list: AgencyWithCoverage[];
+    list: IAgencyWithCoverage[];
     references: References;
   };
 }
 
-export interface AgencyWithCoverage {
+export interface IAgencyWithCoverage {
   agencyId: string;
   lat: number;
   latSpan: number;

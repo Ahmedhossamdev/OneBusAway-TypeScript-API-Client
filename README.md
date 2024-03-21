@@ -8,3 +8,4 @@ To use this TypeScript API client, you can clone the repository to your local ma
 
 ```bash
 git clone https://github.com/Ahmedhossamdev/OneBusGo-TypeScript-API-Client.git
+```
