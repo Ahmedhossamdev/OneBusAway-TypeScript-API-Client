@@ -8,12 +8,15 @@ You can install the OneBusGo TypeScript API Client via npm:
 
 ```bash
 npm install onebusaway-api-client
+```
 
 Alternatively, you can clone the repository to your local machine:
 
+```bash
 git clone https://github.com/Ahmedhossamdev/OneBusGo-TypeScript-API-Client.git
+```
 
-Usage
+## Usage
 -----
 Once installed, you can import the Library class and create a new instance of the client with your API key and base URL:
 
@@ -25,11 +28,9 @@ const client = new Library({
   baseUrl: 'YOUR_BASE_URL',
 });
 
-You can then utilize the client to access various endpoints. Here's an example of how to fetch agency details by ID:
 
-```typescript
 client.agency.getAgencyById('1').then((response) => {
   console.log(response.data);
 });
-
+```
 
