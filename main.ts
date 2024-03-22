@@ -7,7 +7,7 @@ const client = new Library({
 });
 
 client.agencyWithCoverage.getAgenciesWithCoverage().then((response) => {
-  console.log(response.data);
+  console.log(response?.data);
 });
 
 // client.agency.getAgencyById('1321321321').then((response) => {
