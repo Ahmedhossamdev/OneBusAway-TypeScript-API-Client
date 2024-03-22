@@ -16,6 +16,16 @@ Alternatively, you can clone the repository to your local machine:
 git clone https://github.com/Ahmedhossamdev/OneBusGo-TypeScript-API-Client.git
 ```
 
+For client testing in main.ts file!
+```bash 
+npm start
+```
+
+For Unit Testing!
+```bash
+npm t
+```
+
 ## Usage
 -----
 Once installed, you can import the Library class and create a new instance of the client with your API key and base URL:
@@ -27,6 +37,11 @@ const client = new Library({
   apiKey: 'YOUR_API_KEY',
   baseUrl: 'YOUR_BASE_URL',
 });
+
+
+.env file shoud look like this
+
+NODE_ENV:
 
 
 client.agency.getAgencyById('1').then((response) => {
