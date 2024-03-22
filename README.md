@@ -31,9 +31,9 @@ npm t
 Once installed, you can import the Library class and create a new instance of the client with your API key and base URL:
 
 .env file shoud look like this
-
+```bash
 NODE_ENV:
-
+```
 ```typescript
 import { Library } from 'onebusaway-api-client';
 
@@ -46,7 +46,7 @@ const client = new Library({
 
 
 
-
+```typescript
 client.agency.getAgencyById('1').then((response) => {
   console.log(response.data);
 });
