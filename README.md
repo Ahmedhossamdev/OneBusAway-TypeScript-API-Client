@@ -1,16 +1,10 @@
-```html
-<p align="center">
-  <img src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png" width="150" />
-</p>
+# OneBusGo TypeScript API Client
 
-<h3 align="center">OneBusAway API Client</h3>
-<p align="center">A TypeScript client for the OneBusAway API.</p>
-<p></p>
-```
+Welcome to the OneBusGo TypeScript API Client repository! This TypeScript client is designed to provide a seamless interaction with the OneBusGo API. It offers support for various endpoints and response formats, making it easier to integrate OneBusGo API into your TypeScript projects.
 
 ## Installation
 
-To install the library, use the following command:
+You can install the OneBusGo TypeScript API Client via npm:
 
 ```bash
 npm install onebusaway-api-client
@@ -42,9 +36,7 @@ Once installed, you can import the Library class and create a new instance of th
 
 .env file shoud look like this
 
-```bash
 NODE_ENV:
-```
 
 ```typescript
 import { Library } from 'onebusaway-api-client';
@@ -55,8 +47,10 @@ const client = new Library({
 });
 ```
 
-```typescript
 client.agency.getAgencyById('1').then((response) => {
-  console.log(response.data);
+console.log(response.data);
 });
+
+```
+
 ```
