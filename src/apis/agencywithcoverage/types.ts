@@ -1,4 +1,6 @@
-import { ApiResponse, References } from '../../common/api-repsonse';
+import { References, ApiResponse } from 'src/utlis/api-repsonse';
+
+import { IAgencyEntry } from '../agency/types';
 
 export interface IAgenciesWithCoverageResponse extends ApiResponse {
   data: {
@@ -15,3 +17,19 @@ export interface IAgencyWithCoverage {
   lon: number;
   lonSpan: number;
 }
+
+// export interface IAgencyWithCoverage {
+//   agencyID: string;
+//   agency: IAgencyEntry;
+//   region: {
+//     center: {
+//       latitude: number;
+//       longitude: number;
+//     };
+//     span: {
+//       latitudeDelta: number;
+//       longitudeDelta: number;
+//     };
+//   };
+//   regionIdentifier?: number;
+// }

@@ -1,4 +1,4 @@
-import { ApiResponse, References } from '../../common/api-repsonse';
+import { References, ApiResponse } from 'src/utlis/api-repsonse';
 
 export interface IAgencyResponse extends ApiResponse {
   data: {

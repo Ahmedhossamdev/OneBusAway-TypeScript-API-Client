@@ -1,4 +1,7 @@
 import 'isomorphic-unfetch';
+import { mapReferences } from './../utlis/referenceUtils';
+import { logRequestInfo } from './../utlis/logger';
+require('dotenv').config();
 
 /***
  * Base class for all API classes
@@ -16,22 +19,37 @@ type Config = {
 export abstract class Base {
   private apiKey: string;
   private baseUrl: string;
+  private region: string;
 
   constructor(config: Config) {
     this.apiKey = config.apiKey;
-    this.baseUrl = config.baseUrl || `https://api.${config.region}.onebusaway.org/api/where/`;
+    this.baseUrl = config.baseUrl || 'https://api.onebusaway.org';
+    this.region = config.region;
   }
 
   protected async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
-    const url = `${this.baseUrl}${endpoint}.json?key=${this.apiKey}`;
+    // TODO: This is temporary, we shoud refactor this after we agree on the final implementation
+    let url;
+
+    if (process.env.NODE_ENV === 'production') {
+      url = `${this.baseUrl.replace('{region}', this.region)}/api/where${endpoint}.json?key=${this.apiKey}`;
+    } else {
+      url = `${this.baseUrl}/api/where${endpoint}.json?key=${this.apiKey}`;
+    }
+    logRequestInfo(url);
     const config = {
       ...options,
     };
 
     // TODO: Verify if this is the correct way to handle the response
+    // TODOl remove refactor from here
+
     return fetch(url, config).then(async (response) => {
       const data = await response.json();
 
+      // TODO: Refactor
+      // const mappedList = mapReferences(data.data.list, data.data.references);
+      // data.data.list = mappedList;
       if (data) {
         return data;
       } else {

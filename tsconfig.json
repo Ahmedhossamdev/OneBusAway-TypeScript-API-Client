@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["jest"],
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -8,8 +9,9 @@
     "sourceMap": false,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "OBATests/testClass.ts"],
   "exclude": ["node_modules", "test", "lib", "**/*spec.ts"]
 }

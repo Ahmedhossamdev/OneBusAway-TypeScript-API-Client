@@ -1,4 +1,5 @@
-import { ApiResponse } from 'src/common/api-repsonse';
+import { References, ApiResponse } from 'src/utlis/api-repsonse';
+
 import { Base } from '../base';
 import { IAgencyResponse } from './types';
 
