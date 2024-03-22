@@ -25,12 +25,10 @@ npm start
 For Unit Testing!
 
 ```bash
-npm t
+npm test or npm t
 ```
 
 ## Usage
-
----
 
 Once installed, you can import the Library class and create a new instance of the client with your API key and base URL:
 
