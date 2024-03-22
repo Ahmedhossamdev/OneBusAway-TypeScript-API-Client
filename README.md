@@ -36,7 +36,9 @@ Once installed, you can import the Library class and create a new instance of th
 
 .env file shoud look like this
 
+```typescript
 NODE_ENV:
+```
 
 ```typescript
 import { Library } from 'onebusaway-api-client';
@@ -45,12 +47,8 @@ const client = new Library({
   apiKey: 'YOUR_API_KEY',
   baseUrl: 'YOUR_BASE_URL',
 });
-```
 
 client.agency.getAgencyById('1').then((response) => {
-console.log(response.data);
+  console.log(response.data);
 });
-
-```
-
 ```
