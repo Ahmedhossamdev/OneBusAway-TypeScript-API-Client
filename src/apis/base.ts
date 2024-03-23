@@ -46,7 +46,6 @@ export abstract class Base {
 
     return fetch(url, config).then(async (response) => {
       const data = await response.json();
-      console.log(data);
       // TODO: Refactor
       // const mappedList = mapReferences(data.data.list, data.data.references);
       // data.data.list = mappedList;
