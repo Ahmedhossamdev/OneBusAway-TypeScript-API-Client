@@ -2,4 +2,5 @@
 dist
 error.log
 combined.log
-*.env
+
+.env
