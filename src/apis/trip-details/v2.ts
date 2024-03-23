@@ -28,7 +28,7 @@ import { ITripDetailsResponse } from './types';
  */
 const resourceName = 'trip-details';
 export class TripDetails extends Base {
-  getTripDetailsById(id: string): Promise<ITripDetailsResponse> {
-    return this.request(`/${resourceName}/${id}`);
+  getTripDetailsById(id: string) {
+    return this.request<ITripDetailsResponse>(`/${resourceName}/${id}`);
   }
 }

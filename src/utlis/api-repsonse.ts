@@ -9,7 +9,7 @@ export interface ApiResponse {
   currentTime?: number;
 }
 
-export interface References {
+export interface IReferences {
   agencies: IAgencyEntry[];
   routes: IRouteEntry[];
   situations: any[];

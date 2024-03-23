@@ -1,9 +1,9 @@
-import { References, ApiResponse, ILocation } from 'src/utlis/api-repsonse';
+import { IReferences, ILocation } from 'src/utlis/api-repsonse';
 
 export interface ITripDetailsResponse {
   data: {
     entry: ITripDetailsEntry;
-    references: References;
+    references: IReferences;
   };
 }
 

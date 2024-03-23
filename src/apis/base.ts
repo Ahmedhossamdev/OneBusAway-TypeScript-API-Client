@@ -29,13 +29,13 @@ export abstract class Base {
 
   protected async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     // TODO: This is temporary, we shoud refactor this after we agree on the final implementation
-    let url;
+    let url = `${this.baseUrl.replace('{region}', this.region)}/api/where${endpoint}.json?key=${this.apiKey}`;
 
-    if (process.env.NODE_ENV === 'production') {
-      url = `${this.baseUrl.replace('{region}', this.region)}/api/where${endpoint}.json?key=${this.apiKey}`;
-    } else {
-      url = `${this.baseUrl}/api/where${endpoint}.json?key=${this.apiKey}`;
-    }
+    // if (process.env.NODE_ENV === 'production') {
+    //   url = `${this.baseUrl.replace('{region}', this.region)}/api/where${endpoint}.json?key=${this.apiKey}`;
+    // } else {
+    //   url = `${this.baseUrl}/api/where${endpoint}.json?key=${this.apiKey}`;
+    // }
     logRequestInfo(url);
     const config = {
       ...options,
@@ -46,11 +46,11 @@ export abstract class Base {
 
     return fetch(url, config).then(async (response) => {
       const data = await response.json();
-
+      console.log(data);
       // TODO: Refactor
       // const mappedList = mapReferences(data.data.list, data.data.references);
       // data.data.list = mappedList;
-      if (data) {
+      if (data != null) {
         return data;
       } else {
         return null;

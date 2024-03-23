@@ -29,7 +29,7 @@ import { ITripResponse } from './types';
 
 const resourceName = 'trip';
 export class Trip extends Base {
-  getTripById(id: string): Promise<ITripResponse> {
-    return this.request(`/${resourceName}/${id}`);
+  getTripById(id: string) {
+    return this.request<ITripResponse>(`/${resourceName}/${id}`);
   }
 }

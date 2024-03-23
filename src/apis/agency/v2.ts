@@ -1,5 +1,3 @@
-import { References, ApiResponse } from 'src/utlis/api-repsonse';
-
 import { Base } from '../base';
 import { IAgencyResponse } from './types';
 
@@ -29,7 +27,7 @@ import { IAgencyResponse } from './types';
 
 const resourceName = 'agency';
 export class Agency extends Base {
-  getAgencyById(id: string): Promise<IAgencyResponse> {
-    return this.request(`/${resourceName}/${id}`);
+  getAgencyById(id: string) {
+    return this.request<IAgencyResponse>(`/${resourceName}/${id}`);
   }
 }

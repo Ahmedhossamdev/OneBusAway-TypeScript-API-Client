@@ -1,6 +1,6 @@
 {
   "name": "onebusaway-api-client",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
@@ -11,23 +11,23 @@
     "test": "jest",
     "start": "NODE_ENV=production ts-node main.ts"
   },
+  "files": [
+    "dist"
+  ],
   "exports": {
     "require": "./dist/index.js",
     "default": "./dist/index.modern.js"
   },
   "author": "",
   "license": "ISC",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
-    "chalk": "^4.1.2",
-    "dotenv": "^16.4.5",
     "isomorphic-unfetch": "^4.0.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.30",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.4.5",
     "jest": "^29.7.0",
     "microbundle": "^0.15.1",
     "nock": "^14.0.0-beta.5",

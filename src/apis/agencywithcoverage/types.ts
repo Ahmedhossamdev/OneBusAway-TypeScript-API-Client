@@ -1,12 +1,10 @@
-import { References, ApiResponse } from 'src/utlis/api-repsonse';
-
-import { IAgencyEntry } from '../agency/types';
+import { IReferences, ApiResponse } from 'src/utlis/api-repsonse';
 
 export interface IAgenciesWithCoverageResponse extends ApiResponse {
   data: {
     limitExceeded: boolean;
     list: IAgencyWithCoverage[];
-    references: References;
+    references: IReferences;
   };
 }
 

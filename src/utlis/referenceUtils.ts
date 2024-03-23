@@ -1,10 +1,10 @@
 import { IAgencyEntry } from 'src/apis/agency/types';
-import { References } from './api-repsonse';
+import { IReferences } from './api-repsonse';
 
 // This Function is used to map agency.id with References.agencies.id
 // TODO: Refactor this function to use a more descriptive name
 // TODO: Optimize this function to use a more efficient algorithm o(n) max o(n * lon(n))
-export function mapReferences<T extends { agencyId: string; agency: IAgencyEntry }>(list: T[], references: References): T[] {
+export function mapReferences<T extends { agencyId: string; agency: IAgencyEntry }>(list: T[], references: IReferences): T[] {
   const agencyLookup = references.agencies.reduce((lookup, agency) => {
     lookup[agency.id] = agency;
     return lookup;

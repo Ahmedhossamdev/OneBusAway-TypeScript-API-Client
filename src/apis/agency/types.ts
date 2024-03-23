@@ -1,9 +1,9 @@
-import { References, ApiResponse } from 'src/utlis/api-repsonse';
+import { IReferences, ApiResponse } from 'src/utlis/api-repsonse';
 
 export interface IAgencyResponse extends ApiResponse {
   data: {
     entry: IAgencyEntry;
-    references: References;
+    references: IReferences;
   };
 }
 

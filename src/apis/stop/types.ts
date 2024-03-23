@@ -1,9 +1,9 @@
-import { References, ApiResponse } from 'src/utlis/api-repsonse';
+import { IReferences, ApiResponse } from 'src/utlis/api-repsonse';
 
 export interface IStopResponse extends ApiResponse {
   data: {
     entry: IStopEntry;
-    references: References;
+    references: IReferences;
   };
 }
 

@@ -1,5 +1,3 @@
-import { References, ApiResponse } from 'src/utlis/api-repsonse';
-
 import { Base } from '../base';
 import { IStopResponse } from './types';
 
@@ -22,7 +20,7 @@ const resourceName = 'stop';
  * This Api return null if stop id not found
  */
 export class Stop extends Base {
-  getStopById(id: string): Promise<IStopResponse> {
-    return this.request(`/${resourceName}/${id}`);
+  getStopById(id: string) {
+    return this.request<IStopResponse>(`/${resourceName}/${id}`);
   }
 }
