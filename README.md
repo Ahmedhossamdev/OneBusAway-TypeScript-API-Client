@@ -42,8 +42,9 @@ NODE_ENV:
 import { Library } from 'onebusaway-api-client';
 
 const client = new Library({
-  apiKey: 'YOUR_API_KEY',
-  baseUrl: 'YOUR_BASE_URL',
+  apiKey: 'TEST',
+  baseUrl: 'https://api.{region}.onebusaway.org',
+  region: 'pugetsound',
 });
 
 client.agency.getAgencyById('1').then((response) => {
