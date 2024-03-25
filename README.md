@@ -13,7 +13,7 @@ npm install onebusaway-api-client
 Alternatively, you can clone the repository to your local machine:
 
 ```bash
-git clone [https://github.com/Ahmedhossamdev/OneBusGo-TypeScript-API-Client.git](https://github.com/Ahmedhossamdev/OneBusAway-TypeScript-API-Client.git)
+git clone https://github.com/Ahmedhossamdev/OneBusAway-TypeScript-API-Client.git
 ```
 
 For client testing in main.ts file!
