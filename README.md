@@ -1,6 +1,6 @@
 # OneBusAway TypeScript API Client
 
-Welcome to the OneBusAway TypeScript API Client repository! This TypeScript client is designed to provide a seamless interaction with the OneBusGo API. It offers support for various endpoints and response formats, making it easier to integrate OneBusGo API into your TypeScript projects.
+Welcome to the OneBusAway TypeScript API Client repository! This TypeScript client is designed to provide a seamless interaction with the OneBusAawy API. It offers support for various endpoints and response formats, making it easier to integrate OneBusGo API into your TypeScript projects.
 
 ## Installation
 
